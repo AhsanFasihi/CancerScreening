@@ -1,0 +1,46 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35521.163 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancerScreening", "CancerScreening\CancerScreening.csproj", "{45AE4702-8D08-46C7-9CBB-445FCDF43893}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancerScreening.Domain", "CancerScreening.Domain\CancerScreening.Domain.csproj", "{C78AA6D2-2399-4313-B9A7-011B56E647A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancerScreening.Infrastructure", "CancerScreening.Infrastructure\CancerScreening.Infrastructure.csproj", "{F2782188-2E28-456C-AC7C-C61AD88AB64B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancerScreening.Application", "CancerScreening.Application\CancerScreening.Application.csproj", "{0FE7C264-5B19-45EF-AC6F-F1B65F40A38D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CancerScreening.Persistence", "CancerScreening.Persistence\CancerScreening.Persistence.csproj", "{3759907C-0967-487C-BCDA-DFA33531A2AB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45AE4702-8D08-46C7-9CBB-445FCDF43893}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45AE4702-8D08-46C7-9CBB-445FCDF43893}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45AE4702-8D08-46C7-9CBB-445FCDF43893}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45AE4702-8D08-46C7-9CBB-445FCDF43893}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C78AA6D2-2399-4313-B9A7-011B56E647A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C78AA6D2-2399-4313-B9A7-011B56E647A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C78AA6D2-2399-4313-B9A7-011B56E647A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C78AA6D2-2399-4313-B9A7-011B56E647A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2782188-2E28-456C-AC7C-C61AD88AB64B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2782188-2E28-456C-AC7C-C61AD88AB64B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2782188-2E28-456C-AC7C-C61AD88AB64B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2782188-2E28-456C-AC7C-C61AD88AB64B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FE7C264-5B19-45EF-AC6F-F1B65F40A38D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FE7C264-5B19-45EF-AC6F-F1B65F40A38D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FE7C264-5B19-45EF-AC6F-F1B65F40A38D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FE7C264-5B19-45EF-AC6F-F1B65F40A38D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3759907C-0967-487C-BCDA-DFA33531A2AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3759907C-0967-487C-BCDA-DFA33531A2AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3759907C-0967-487C-BCDA-DFA33531A2AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3759907C-0967-487C-BCDA-DFA33531A2AB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
