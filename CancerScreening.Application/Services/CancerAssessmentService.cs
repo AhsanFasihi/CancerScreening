@@ -1,9 +1,8 @@
-﻿using CancerScreening.Application.Interfaces;
+﻿using AutoMapper;
+using CancerScreening.Application.DTOs;
+using CancerScreening.Application.Interfaces;
 using CancerScreening.Domain.Entities;
 using CancerScreening.Domain.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace CancerScreening.Application.Services
 {
@@ -11,36 +10,41 @@ namespace CancerScreening.Application.Services
     {
         private readonly ICancerAssessmentRepository _assessmentRepo;
         private readonly ICancerQuestionRepository _questionRepo;
+        private readonly IMapper _mapper;
 
-        public CancerAssessmentService(ICancerAssessmentRepository assessmentRepo, ICancerQuestionRepository questionRepo)
+        public CancerAssessmentService(
+            ICancerAssessmentRepository assessmentRepo,
+            ICancerQuestionRepository questionRepo,
+            IMapper mapper)
         {
             _assessmentRepo = assessmentRepo;
             _questionRepo = questionRepo;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<CancerQuestion>> GetQuestionsByCancerTypeAsync(string cancerType)
+        public async Task<IEnumerable<CancerQuestionDto>> GetQuestionsByCancerTypeAsync(string cancerType)
         {
-            return await _questionRepo.ListByCancerTypeAsync(cancerType);
+            var questions = await _questionRepo.ListByCancerTypeAsync(cancerType);
+            return _mapper.Map<IEnumerable<CancerQuestionDto>>(questions);
         }
 
-        public async Task<CancerAssessment> SubmitAssessmentAsync(string userId, string cancerType, Dictionary<int, bool> answers)
+        public async Task<CancerAssessmentDto> SubmitAssessmentAsync(
+            string userId,
+            string cancerType,
+            Dictionary<int, bool> answers)
         {
-            int totalScore = 0;
             var questions = await _questionRepo.ListByCancerTypeAsync(cancerType);
 
-            foreach (var answer in answers)
+            int totalScore = 0;
+            foreach (var q in questions)
             {
-                var question = questions.FirstOrDefault(q => q.Id == answer.Key);
-                if (question != null && answer.Value)
-                    totalScore += question.Weight;
+                if (answers.TryGetValue(q.Id, out bool yes) && yes)
+                    totalScore += q.Weight;
             }
 
-            string riskLevel = totalScore switch
-            {
-                < 5 => "Low",
-                < 10 => "Moderate",
-                _ => "High"
-            };
+            string riskLevel =
+                totalScore < 5 ? "Low" :
+                totalScore < 10 ? "Medium" : "High";
 
             var assessment = new CancerAssessment
             {
@@ -50,12 +54,14 @@ namespace CancerScreening.Application.Services
                 RiskLevel = riskLevel
             };
 
-            return await _assessmentRepo.AddAsync(assessment);
+            var saved = await _assessmentRepo.AddAsync(assessment);
+            return _mapper.Map<CancerAssessmentDto>(saved);
         }
 
-        public async Task<IEnumerable<CancerAssessment>> GetUserAssessmentsAsync(string userId)
+        public async Task<IEnumerable<CancerAssessmentDto>> GetUserAssessmentsAsync(string userId)
         {
-            return await _assessmentRepo.ListByUserIdAsync(userId);
+            var assessments = await _assessmentRepo.ListByUserIdAsync(userId);
+            return _mapper.Map<IEnumerable<CancerAssessmentDto>>(assessments);
         }
     }
 }

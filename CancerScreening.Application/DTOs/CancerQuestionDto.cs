@@ -9,7 +9,10 @@ namespace CancerScreening.Application.DTOs
     public class CancerQuestionDto
     {
         public int Id { get; set; }
+        public string CancerType { get; set; } = string.Empty;
         public string Text { get; set; } = string.Empty;
+        public int Weight { get; set; }
     }
 }
+
 

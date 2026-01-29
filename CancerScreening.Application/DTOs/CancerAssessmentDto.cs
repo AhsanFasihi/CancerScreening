@@ -8,9 +8,11 @@ namespace CancerScreening.Application.DTOs
 {
     public class CancerAssessmentDto
     {
+        public int Id { get; set; }
         public string CancerType { get; set; } = string.Empty;
         public int Score { get; set; }
         public string RiskLevel { get; set; } = string.Empty;
     }
 }
+
 

@@ -1,13 +1,16 @@
-﻿using CancerScreening.Domain.Entities;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+﻿using CancerScreening.Application.DTOs;
 
 namespace CancerScreening.Application.Interfaces
 {
     public interface ICancerAssessmentService
     {
-        Task<IEnumerable<CancerQuestion>> GetQuestionsByCancerTypeAsync(string cancerType);
-        Task<CancerAssessment> SubmitAssessmentAsync(string userId, string cancerType, Dictionary<int, bool> answers);
-        Task<IEnumerable<CancerAssessment>> GetUserAssessmentsAsync(string userId);
+        Task<IEnumerable<CancerQuestionDto>> GetQuestionsByCancerTypeAsync(string cancerType);
+
+        Task<CancerAssessmentDto> SubmitAssessmentAsync(
+            string userId,
+            string cancerType,
+            Dictionary<int, bool> answers);
+
+        Task<IEnumerable<CancerAssessmentDto>> GetUserAssessmentsAsync(string userId);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using CancerScreening.Domain.Entities;
 using CancerScreening.Application.DTOs;
+using CancerScreening.Domain.Entities;
 
 namespace CancerScreening.Application.Mapping
 {
