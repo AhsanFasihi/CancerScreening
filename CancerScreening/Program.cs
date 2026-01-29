@@ -26,6 +26,7 @@ using Microsoft.AspNetCore.Identity;
 using CancerScreening.Persistence;
 using CancerScreening.Persistence.Identity;
 using Microsoft.EntityFrameworkCore;
+using CancerScreening.Application.Mapping;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -40,6 +41,9 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
 
 // MVC
 builder.Services.AddControllersWithViews();
+
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 
 var app = builder.Build();
 app.UseRouting();
