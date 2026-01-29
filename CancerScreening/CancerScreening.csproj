@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\CancerScreening.Application\CancerScreening.Application.csproj" />
+    <ProjectReference Include="..\CancerScreening.Infrastructure\CancerScreening.Infrastructure.csproj" />
     <ProjectReference Include="..\CancerScreening.Persistence\CancerScreening.Persistence.csproj" />
   </ItemGroup>
 
