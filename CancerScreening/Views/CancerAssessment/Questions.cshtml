@@ -1,0 +1,18 @@
+﻿@model List<CancerScreening.Web.ViewModels.CancerQuestionVM>
+
+<h2>@ViewBag.CancerType Cancer Risk Assessment</h2>
+
+<form asp-action="Submit" method="post">
+    <input type="hidden" name="cancerType" value="@ViewBag.CancerType" />
+
+    @foreach (var q in Model)
+    {
+        <div>
+            <p>@q.Text</p>
+            <input type="radio" name="answers[@q.Id]" value="true" required /> Yes
+            <input type="radio" name="answers[@q.Id]" value="false" /> No
+        </div>
+    }
+
+    <button type="submit">Submit Assessment</button>
+</form>

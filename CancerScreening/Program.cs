@@ -23,11 +23,11 @@ builder.Services.AddIdentity<ApplicationUser, ApplicationRole>()
 // MVC
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddSingleton<ICancerAssessmentRepository, CancerAssessmentRepository>();
-builder.Services.AddSingleton<ICancerQuestionRepository, CancerQuestionRepository>();
-builder.Services.AddScoped<ICancerAssessmentService, CancerAssessmentService>();
-
 builder.Services.AddAutoMapper(typeof(MappingProfile));
+builder.Services.AddScoped<ICancerAssessmentService, CancerAssessmentService>();
+builder.Services.AddScoped<ICancerAssessmentRepository, CancerAssessmentRepository>();
+builder.Services.AddScoped<ICancerQuestionRepository, CancerQuestionRepository>();
+
 
 
 var app = builder.Build();

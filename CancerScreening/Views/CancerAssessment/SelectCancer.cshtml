@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Cancer Self Assessment";
+}
+
+<h2>Select Cancer Type</h2>
+
+<ul>
+    <li><a asp-action="Questions" asp-route-cancerType="Breast">Breast Cancer</a></li>
+    <li><a asp-action="Questions" asp-route-cancerType="Colon">Colon Cancer</a></li>
+    <li><a asp-action="Questions" asp-route-cancerType="Lung">Lung Cancer</a></li>
+    <li><a asp-action="Questions" asp-route-cancerType="HCC">Liver (HCC)</a></li>
+    <li><a asp-action="Questions" asp-route-cancerType="Cervical">Cervical Cancer</a></li>
+    <li><a asp-action="Questions" asp-route-cancerType="Prostate">Prostate Cancer</a></li>
+</ul>

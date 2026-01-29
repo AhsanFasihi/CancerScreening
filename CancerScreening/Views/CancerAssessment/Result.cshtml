@@ -1,0 +1,21 @@
+﻿@model CancerScreening.Web.ViewModels.CancerAssessmentResultVM
+
+<h2>@Model.CancerType Cancer Screening Result</h2>
+
+<p><strong>Risk Level:</strong> @Model.RiskLevel</p>
+<p><strong>Score:</strong> @Model.Score</p>
+
+@if (Model.RiskLevel != "Low")
+{
+    <p>
+        Screening is advised at
+        <strong>Liaquat National Hospital</strong><br />
+        Oncology Screening OPD – Thursday Morning<br />
+        Supervised by <strong>Dr. Naila Zahid</strong><br />
+        📞 021-34412716
+    </p>
+}
+else
+{
+    <p>Routine screening as per guidelines is recommended.</p>
+}
