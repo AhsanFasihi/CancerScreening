@@ -31,6 +31,7 @@ builder.Services.AddScoped<ICancerQuestionRepository, CancerQuestionRepository>(
 
 
 var app = builder.Build();
+app.UseStaticFiles();
 app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
