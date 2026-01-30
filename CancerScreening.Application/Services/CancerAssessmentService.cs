@@ -29,17 +29,20 @@ namespace CancerScreening.Application.Services
         }
 
         public async Task<CancerAssessmentDto> SubmitAssessmentAsync(
-            string userId,
+            string? userId,
             string cancerType,
             Dictionary<int, bool> answers)
         {
             var questions = await _questionRepo.ListByCancerTypeAsync(cancerType);
 
             int totalScore = 0;
+
             foreach (var q in questions)
             {
                 if (answers.TryGetValue(q.Id, out bool yes) && yes)
+                {
                     totalScore += q.Weight;
+                }
             }
 
             string riskLevel =

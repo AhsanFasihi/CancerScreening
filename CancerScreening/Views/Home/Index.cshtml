@@ -1,8 +1,77 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Cancer Screening Self-Assessment";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+
+        <!-- Hero -->
+        <div class="hero text-center mb-5">
+            <h1 class="fw-bold mb-3">
+                Cancer Screening Self-Assessment
+            </h1>
+
+            <p class="lead text-muted mb-4">
+                A simple, confidential tool to help you understand
+                whether cancer screening may be recommended.
+            </p>
+
+            <a asp-controller="CancerAssessment"
+               asp-action="SelectCancer"
+               class="btn btn-primary btn-lg">
+                Start Assessment
+            </a>
+
+            <p class="text-muted small mt-4">
+                No login • Anonymous • Takes less than 2 minutes
+            </p>
+        </div>
+
+        <!-- Features -->
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card info-card h-100 p-4">
+                    <h5>Anonymous & Secure</h5>
+                    <p class="text-muted small">
+                        Your answers are not stored unless you choose to continue care.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card info-card h-100 p-4">
+                    <h5>Clinically Guided</h5>
+                    <p class="text-muted small">
+                        Questions designed using established cancer screening guidelines.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-4">
+                <div class="card info-card h-100 p-4">
+                    <h5>Trusted Hospital Care</h5>
+                    <p class="text-muted small">
+                        Screening available at Liaquat National Hospital.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- OPD Info -->
+        <div class="card mt-4 p-4 text-center">
+            <h5 class="fw-semibold mb-2">
+                Oncology Screening OPD
+            </h5>
+            <p class="mb-1">
+                Every <strong>Thursday Morning</strong>
+            </p>
+            <p class="mb-1">
+                Supervised by <strong>Dr. Naila Zahid</strong>
+            </p>
+            <p class="mb-0">
+                📞 021-34412716
+            </p>
+        </div>
+
+    </div>
 </div>

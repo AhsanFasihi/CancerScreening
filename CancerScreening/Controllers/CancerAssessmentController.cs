@@ -19,9 +19,11 @@ namespace CancerScreening.Web.Controllers
             return View();
         }
 
-        // STEP 2: Show questions
         public async Task<IActionResult> Questions(string cancerType)
         {
+            if (string.IsNullOrWhiteSpace(cancerType))
+                return RedirectToAction(nameof(SelectCancer));
+
             var questions = await _service.GetQuestionsByCancerTypeAsync(cancerType);
 
             var vm = questions.Select(q => new CancerQuestionVM
@@ -34,13 +36,18 @@ namespace CancerScreening.Web.Controllers
             return View(vm);
         }
 
-        // STEP 3: Submit assessment
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> Submit(
             string cancerType,
             Dictionary<int, bool> answers)
         {
-            string userId = User.Identity?.Name ?? "Guest";
+            if (string.IsNullOrWhiteSpace(cancerType) || answers == null || !answers.Any())
+                return RedirectToAction(nameof(SelectCancer));
+
+            string? userId = User.Identity?.IsAuthenticated == true
+                ? User.Identity.Name
+                : null;
 
             var result = await _service.SubmitAssessmentAsync(
                 userId,

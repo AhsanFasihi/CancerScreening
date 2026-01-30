@@ -3,6 +3,7 @@
 <h2>@ViewBag.CancerType Cancer Risk Assessment</h2>
 
 <form asp-action="Submit" method="post">
+    @Html.AntiForgeryToken()
     <input type="hidden" name="cancerType" value="@ViewBag.CancerType" />
 
     @foreach (var q in Model)
